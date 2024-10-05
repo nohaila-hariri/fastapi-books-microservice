@@ -1,0 +1,46 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment variables files (secrets)
+.env
+*.env
+
+# Ignore log files
+*.log
+logs/
+*.tmp
+
+# Ignore virtual environments
+venv/
+.env/
+.venv/
+
+# Ignore Docker and Docker Compose files (you generally don't need these inside the container)
+docker-compose.yml
+.dockerignore
+
+# Ignore Git and version control files
+.git/
+.gitignore
+
+# Ignore any IDE or editor configuration
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore node_modules if you have any frontend-related projects or dependencies
+node_modules/
+npm-debug.log
+yarn.lock
+
+# Ignore test results or coverage reports
+tests/
+.coverage
+*.cover
+
+# Ignore other temporary files
+tmp/

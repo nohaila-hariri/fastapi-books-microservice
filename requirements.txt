@@ -1,0 +1,10 @@
+# Project: FastAPI Microservice for Book Management
+# Version: 1.0.0
+# Objective: This requirements file lists all the dependencies needed for the FastAPI microservice, including specific tools and libraries.
+
+fastapi==0.95.0
+motor==3.0.0  # Async MongoDB driver
+pydantic==1.10.2  # Data validation and settings management
+uvicorn==0.19.0  # ASGI server to run FastAPI app
+python-dotenv==1.0.0  # Load environment variables from .env file
+pymongo==4.4.0  # MongoDB driver for interaction with the database

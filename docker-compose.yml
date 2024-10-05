@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: fastapi-books-microservice-mongo
+    env_file: .env
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./data:/data/db
+      - ./mongo.conf:/etc/mongo/mongod.conf
+    command: [ "mongod", "--config", "/etc/mongo/mongod.conf" ]
+    networks:
+      - app-network
+
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+      - ./data:/data
+    depends_on:
+      - mongo
+    env_file: .env
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo_data:
